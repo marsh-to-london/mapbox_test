@@ -36,7 +36,7 @@
       });
 
       
-      map.on('click', 'test-polygons', (e) => {
+      map.on('click', ['test-polygons', 'test-lines'], (e) => {
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(`Pesrson name: ${e.features[0].properties.person}`)
