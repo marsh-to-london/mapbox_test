@@ -35,7 +35,7 @@
       });
 
       map.on('click', (event) => {
-        const features = map.queryRenderedFeatures(event.point, {
+        const features = map.queryRenderedFeatures({
           layers: ['test']
         });
         if (!features.length) {
