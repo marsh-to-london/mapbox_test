@@ -35,30 +35,14 @@
         zoom: 3
       });
 
-      map.on('load', () => {
-        // Add a source for the state polygons.
-        map.addSource('polygons', {
-            'type': 'geojson',
-            'data': 'mapbox://marzal.clwdojfoo1iio1nmb393fk7g1-9py0c'
-        });
-
-      map.addLayer({
-            'id': 'test-polygons',
-            'type': 'fill',
-            'source': 'polygons',
-            'paint': {
-                'fill-color': 'rgba(200, 100, 240, 0.4)',
-                'fill-outline-color': 'rgba(200, 100, 240, 1)'
-            }
-        });
-
       
       map.on('click', 'test-polygons', (e) => {
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(`Pesrson name: ${e.features[0].properties.person}`)
           .addTo(map);
-
+      
+      });
     </script>
   </body>
 </html>
