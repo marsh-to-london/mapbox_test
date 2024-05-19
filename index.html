@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Demo: Add points to a web map</title>
+    <title>Points on a map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
     <link
@@ -26,30 +26,17 @@
   <body>
     <div id="map"></div>
     <script>
+      // The value for 'accessToken' begins with 'pk...'
       mapboxgl.accessToken = MB_ACCEESS_TOKEN;
       const map = new mapboxgl.Map({
         container: 'map',
+        // Replace YOUR_STYLE_URL with your style URL.
         style: 'mapbox://styles/marzal/clwdkr8zb004d01pc4dnl9tw3',
         center: [24.985215, 53.168032],
         zoom: 3
       });
 
-      map.on('click', (event) => {
-        const features = map.queryRenderedFeatures(event.point, {
-          layers: ['test']
-        });
-        if (!features.length) {
-          return;
-        }
-        const feature = features[0];
-
-        const popup = new mapboxgl.Popup({ offset: [0, -15] })
-          .setLngLat(feature.geometry.coordinates)
-          .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-          )
-          .addTo(map);
-      });
+      // Code from the next step will go here.
     </script>
   </body>
 </html>
