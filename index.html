@@ -35,14 +35,12 @@
         zoom: 3
       });
 
-      map.on('click', 'test_points', (e) => {
-            new mapboxgl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(
-            `<h3>${feature.properties.place_name}</h3><h4>${feature.properties.person}</h4><p>${feature.properties.description}</p>`
-          )
-                .addTo(map);
-        });
+      map.on('click', ['test-polygons', 'test-lines', 'test-points', 'test-lines-out'], (e) => {
+        new mapboxgl.Popup()
+          .setLngLat(e.lngLat)
+          .setHTML(`Pesrson name: ${e.features[0].properties.person}`)
+          .addTo(map);
+
     </script>
   </body>
 </html>
