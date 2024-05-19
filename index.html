@@ -39,7 +39,7 @@
       map.on('click', ['test-lines', 'test-points', 'test-polygons'], (e) => {
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
-          .setHTML(`Pesrson name: ${e.features[0].properties.person}<br> Location: ${e.features[0].properties.place_name} <be> ${e.features[0].properties.description}`)
+          .setHTML(`Pesrson name: ${e.features[0].properties.person}<br> Location: ${e.features[0].properties.place_name} <br> ${e.features[0].properties.description}`)
           .addTo(map);      
       });
     </script>
