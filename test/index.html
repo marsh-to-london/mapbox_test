@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Add points to a web map</title>
+    <title>Demo: Add points to a web map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
     <link
@@ -35,13 +35,14 @@
         zoom: 3
       });
 
-      
-      map.on('click', ['test-lines-out', 'test-lines', 'test-points', 'test-polygons'], (e) => {
-        new mapboxgl.Popup()
-          .setLngLat(e.lngLat)
-          .setHTML(`Pesrson name: ${e.features[0].properties.person}<br> Location: ${e.features[0].properties.place_name} <br> ${e.features[0].properties.description}`)
-          .addTo(map);      
-      });
+      map.on('click', 'test_points', (e) => {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(
+            `<h3>${feature.properties.place_name}</h3><h4>${feature.properties.person}</h4><p>${feature.properties.description}</p>`
+          )
+                .addTo(map);
+        });
     </script>
   </body>
 </html>
