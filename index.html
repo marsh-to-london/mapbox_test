@@ -36,12 +36,13 @@
       });
 
       
-      map.on('click', ['test-polygons', 'test-lines'], (e) => {
+      map.on('click', ['test-polygons', 'test-points'], (e) => {
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
-          .setHTML(`Pesrson name: ${e.features[0].properties.person}`)
-          .addTo(map);
-      
+          .setHTML(
+            `<h3>${feature.properties.person}</h3><p>${feature.properties.description}</p>`
+          )
+          .addTo(map);      
       });
     </script>
   </body>
