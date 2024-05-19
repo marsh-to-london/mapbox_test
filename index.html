@@ -30,17 +30,19 @@
       
       const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/marzal/clwdkr8zb004d01pc4dnl9tw3',
+        style: 'mapbox://styles/marzal/clwdpnomi001l01qw484ybcg6', 
         center: [24.985215, 53.168032],
         zoom: 3
       });
 
-      map.on('click', 'test', (e) => {
+      map.on('click', 'test_points', (e) => {
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML(`<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`)
+                .setHTML(
+            `<h3>${feature.properties.place_name}</h3><h4>${feature.properties.person}</h4><p>${feature.properties.description}</p>`
+          )
                 .addTo(map);
-      });
+        });
     </script>
   </body>
 </html>
