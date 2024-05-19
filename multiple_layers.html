@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo: Add points to a web map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoibWFyemFsIiwiYSI6ImNsd2RrY2hyNTE3ZXgycXFtemF1eW56aHQifQ.MEKl6bUBbabH6Ah8rZ6ixw';
+      
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/marzal/clwdpnomi001l01qw484ybcg6', 
+        center: [24.985215, 53.168032],
+        zoom: 3
+      });
+
+      map.on('click', 'test_points', (e) => {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(
+            `<h3>${feature.properties.place_name}</h3><h4>${feature.properties.person}</h4><p>${feature.properties.description}</p>`
+          )
+                .addTo(map);
+        });
+    </script>
+  </body>
+</html>
