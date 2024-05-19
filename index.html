@@ -29,14 +29,14 @@
       mapboxgl.accessToken = 'pk.eyJ1IjoibWFyemFsIiwiYSI6ImNsd2RrY2hyNTE3ZXgycXFtemF1eW56aHQifQ.MEKl6bUBbabH6Ah8rZ6ixw';
       const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/examples/clg45vm7400c501pfubolb0xz',
-        center: [-87.661557, 41.893748],
-        zoom: 10.7
+        style: 'mapbox://styles/marzal/clwdkr8zb004d01pc4dnl9tw3',
+        center: [24.985215, 53.168032],
+        zoom: 3
       });
 
       map.on('click', (event) => {
         const features = map.queryRenderedFeatures(event.point, {
-          layers: ['chicago-parks']
+          layers: ['test']
         });
         if (!features.length) {
           return;
